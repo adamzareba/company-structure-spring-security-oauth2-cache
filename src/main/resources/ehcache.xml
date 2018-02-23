@@ -19,15 +19,15 @@
 		<persistence strategy="localTempSwap"/>
 	</cache>
 
-	<cache name="OauthClientDetailsServiceCache"
+	<cache name="OAuthClientDetailsServiceCache"
 		   maxElementsInMemory="10000" eternal="false" timeToIdleSeconds="300"
 		   timeToLiveSeconds="600" overflowToDisk="true" />
 
-	<cache name="OauthTokenStoreReadAuthenticationCache"
+	<cache name="OAuthTokenStoreReadAuthenticationCache"
 		   maxElementsInMemory="10000" eternal="false" timeToIdleSeconds="300"
 		   timeToLiveSeconds="600" overflowToDisk="true" />
 
-	<cache name="OauthTokenByIdCache"
+	<cache name="OAuthTokenByIdCache"
 		   maxElementsInMemory="10000" eternal="false" timeToIdleSeconds="300"
 		   timeToLiveSeconds="600" overflowToDisk="true" />
 </ehcache>
