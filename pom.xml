@@ -23,7 +23,6 @@
         <spring.hateoas.version>0.24.0.RELEASE</spring.hateoas.version>
 
         <hibernate.version>5.2.12.Final</hibernate.version>
-        <org.ehcache.version>3.4.0</org.ehcache.version>
         <flywaydb.version>5.0.5</flywaydb.version>
         <jackson.version>2.9.4</jackson.version>
         <lombok.version>1.16.20</lombok.version>
@@ -70,16 +69,6 @@
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-jpamodelgen</artifactId>
             <version>${hibernate.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.hibernate</groupId>
-            <artifactId>hibernate-ehcache</artifactId>
-            <version>${hibernate.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.ehcache</groupId>
-            <artifactId>ehcache</artifactId>
-            <version>${org.ehcache.version}</version>
         </dependency>
         <dependency>
             <groupId>org.flywaydb</groupId>
