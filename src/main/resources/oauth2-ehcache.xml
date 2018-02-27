@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:aop="http://www.springframework.org/schema/aop"
        xmlns:cache="http://www.springframework.org/schema/cache"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
        		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd
        		http://www.springframework.org/schema/cache http://www.springframework.org/schema/cache/spring-cache.xsd">
 
+    <!-- define caching behavior -->
     <cache:advice id="cacheClientsAdvice" cache-manager="ehCacheCacheManager">
         <cache:caching cache="OAuthClientDetailsServiceCache">
             <cache:cacheable method="loadClientByClientId" key="#clientId"/>
@@ -30,11 +32,11 @@
         </cache:caching>
     </cache:advice>
 
-    <!-- apply the cacheable behavior to all ClientDetailsService interface methods -->
+    <!-- apply the cacheable behavior to all interface methods -->
     <aop:config>
         <aop:advisor advice-ref="cacheClientsAdvice" pointcut="execution(* org.springframework.security.oauth2.provider.ClientDetailsService.*(..))"/>
         <aop:advisor advice-ref="cacheEvictClient" pointcut="execution(* org.springframework.security.oauth2.provider.ClientRegistrationService.*(..))"/>
-        <aop:advisor advice-ref="tokenByIdAdvice" pointcut="execution(* org.springframework.security.oauth2.provider.token.TokenStore.readAccessToken(String))"/>
-        <aop:advisor advice-ref="authByTokenIdAdvice" pointcut="execution(* org.springframework.security.oauth2.provider.token.TokenStore.readAuthentication(..)) "/>
+        <aop:advisor advice-ref="authByTokenIdAdvice" pointcut="execution(* org.springframework.security.oauth2.provider.token.TokenStore.*(..)) "/>
+        <aop:advisor advice-ref="tokenByIdAdvice" pointcut="execution(* org.springframework.security.oauth2.provider.token.TokenStore.*(..))"/>
     </aop:config>
 </beans>
