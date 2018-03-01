@@ -23,11 +23,11 @@
         <spring.hateoas.version>0.24.0.RELEASE</spring.hateoas.version>
 
         <hibernate.version>5.2.12.Final</hibernate.version>
-        <org.ehcache.version>3.4.0</org.ehcache.version>
         <flywaydb.version>5.0.5</flywaydb.version>
         <jackson.version>2.9.4</jackson.version>
         <lombok.version>1.16.20</lombok.version>
         <oauth2.version>2.2.1.RELEASE</oauth2.version>
+        <redis.client.version>2.9.0</redis.client.version>
     </properties>
 
     <dependencies>
@@ -42,6 +42,10 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-security</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-redis</artifactId>
         </dependency>
 
         <dependency>
@@ -72,16 +76,6 @@
             <version>${hibernate.version}</version>
         </dependency>
         <dependency>
-            <groupId>org.hibernate</groupId>
-            <artifactId>hibernate-ehcache</artifactId>
-            <version>${hibernate.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.ehcache</groupId>
-            <artifactId>ehcache</artifactId>
-            <version>${org.ehcache.version}</version>
-        </dependency>
-        <dependency>
             <groupId>org.flywaydb</groupId>
             <artifactId>flyway-core</artifactId>
             <version>${flywaydb.version}</version>
@@ -97,6 +91,11 @@
             <version>${jackson.version}</version>
         </dependency>
 
+        <dependency>
+            <groupId>redis.clients</groupId>
+            <artifactId>jedis</artifactId>
+            <version>${redis.client.version}</version>
+        </dependency>
         <dependency>
             <groupId>org.springframework.security.oauth</groupId>
             <artifactId>spring-security-oauth2</artifactId>
